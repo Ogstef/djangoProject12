@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where uploaded media is saved.
 STATICFILES_DIRS = ["C:/Users/30693/PycharmProjects/djangoProject12/website/static/website/img"]
 MEDIA_URL = '/img/'
 # Default primary key field type

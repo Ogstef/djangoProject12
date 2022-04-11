@@ -32,7 +32,7 @@
                  class="d-inline-block align-text-top">
             Crypto Pal
         </a>
-        <a class="navbar-brand order-1 mr-0" href="https://www.github.com" target="_blank">By OGstef</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,54 +41,47 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link text-white" href="{% url 'website:index' %}">Home<span
                         class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link text-white" href="{% url 'website:rate' %}">Rate</a>
+                <a class="nav-item nav-link text-white" href="{% url 'website:contact' %}">Contact</a>
                 <a class="nav-item nav-link text-white" href="{% url 'website:about' %}">About</a>
+                {% if user.is_authenticated %}
+
+                    <a class="nav-item nav-link text-white" href="{% url 'website:rate' %}">Rate</a>
+                    <a class="nav-item nav-link text-white" href="{% url 'website:profpage' %}">Profile</a>
+
+                {% endif %}
 
             </div>
         </div>
 
     </div>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'website:logout' %}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Welcome, {{ user.username }}</a>
+                </li>
+
+            {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'website:login' %}">Login</a>
+                </li>
+
+            {% endif %}
+        </ul>
+    </div>
 
 </nav>
-<!-- /navbar -->
-<!-- jumbotron -->
-<div class="jumbotron jumbotron-fluid bg-dark text-white ">
-    <div class="container text-sm-center pt-5">
-        <h1 class="display-2">CryptoPal</h1>
-        <p class="lead">Keep track of your crypto safely!</p>
-        <br>
-        <div>
-            <a href="/">
-                <img src="{% static 'website/img/logo.png' %}" alt="Image">
-            </a>
-        </div>
-        <br>
-        
-        <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
-            <button type="button" class=" btn-primary btn-lg" ><a class="text-white" href="{% url 'website:register' %}">Register Now</a>
-            </button>
-        </div>
-    </div>
-</div>
-<!-- /jumbotron -->
-
-<!-- container -->
 <div class="container pt-2">
 
     {% block body %} {% endblock %}
 
-    <!-- signup form -->
-    <hr>
-    <div class="row py-4 text-muted">
-        <div class="col-md col-xl-5">
-            <p><strong>About CryptoPal</strong></p>
-            <p>CryptoPal is a stand-alone wallet to keep track of your stacking currencies!</p>
-        </div>
-    </div>
-    <hr>
 
 </div>
-<!-- /.container -->
 <!-- footer -->
 
 <footer class="container d-flex-inline text-center mt-auto p-5">
@@ -103,7 +96,7 @@
         <hr class="clearfix w-100 d-md-none pb-3">
         <div class="col-md-3 mb-md-0 mb-3">
             <h5 class="text-uppercase text-light">Creator:</h5>
-            <h4 class="text-uppercase text-light">Stefanos Georgiou</h4>
+            <h4 class="text-uppercase text-light">Stefanos David Georgiou</h4>
             <h3 class="text-light">Socials</h3>
 
             <ul class="list-unstyled">
@@ -122,22 +115,15 @@
             </ul>
         </div>
         <div class="col-md-3 mb-md-0 mb-3">
-            <h5 class="text-uppercase text-light">Co-Creator:</h5>
-            <h4 class="text-uppercase text-light">Antonis Koinoussis</h4>
-            <h3 class="text-light">Socials</h3>
+            <h5 class="text-uppercase text-light">Credentials:</h5>
+            <h3 class="text-light">Experience</h3>
 
             <ul class="list-unstyled">
                 <li>
-                    <a href="https://github.com/Ogstef">Github</a>
+                    <a href="https://www.acg.edu/">Education</a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/">Facebook</a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/">Youtube</a>
-                </li>
-                <li>
-                    <a href="https://www.twitter.com/">Twitter</a>
+                    <a href="https://www.codeacademy.com/">CodeAcademy Certification</a>
                 </li>
             </ul>
         </div>
@@ -151,7 +137,6 @@
 <!--=====================================
     FORM MODAL
    =====================================-->
-
 
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
