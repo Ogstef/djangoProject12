@@ -4,8 +4,6 @@ from django import forms
 from .models import Profile
 
 
-# Create your forms here.
-
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
@@ -24,13 +22,11 @@ class NewUserForm(UserCreationForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        exclude = ('password',)
+        fields = ('username', 'email')
 
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
+        fields = ('currencies',)
         exclude = ()
-
-
-

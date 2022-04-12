@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'website',
 ]
 
+CRISPY_TEMPLATE_PACK = 'uni_form'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -122,7 +124,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where uploaded media is saved.
-STATICFILES_DIRS = ["C:/Users/30693/PycharmProjects/djangoProject12/website/static/website/img"]
 MEDIA_URL = '/img/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

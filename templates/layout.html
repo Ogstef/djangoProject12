@@ -27,7 +27,7 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'website:index' %}">
             <img src="{% static 'website/img/logo.png' %}" alt="" width="30" height="30"
                  class="d-inline-block align-text-top">
             Crypto Pal
@@ -54,6 +54,14 @@
         </div>
 
     </div>
+{% if user.is_authenticated %}
+    <form class = "d-flex" id="search" method="post" action="{% url 'website:search' %}" >
+                {% csrf_token %}
+                 <div class = "input-group mb-0" >
+                 <button class = "btn btn-outline-secondary" id="search-bt" type="submit">Search</button >
+                     <input type = "text"   id="q" name="q" class = "form-control form-control-me2" placeholder = "Search crypto"   aria-label = "search"   aria-describedby = "search-bt" ></div>
+</form>
+{% endif %}
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             {% if user.is_authenticated %}

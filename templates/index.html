@@ -3,53 +3,57 @@
 
 {% block body %}
     {% if  user.is_authenticated %}
-    <div class="jumbotron jumbotron-fluid bg-dark text-white ">
-        <div class="container text-sm-center pt-5">
-            <h1 class="display-2">Welcome {{ user.username }}</h1>
-            <h3><a href="{% url 'website:rate' %}">Rate your favorite crypto safely!</a></h3>
-            <br>
-            <div>
-                <a href="">
-                    <img src="{% static 'website/img/logo.png' %}" alt="Image">
-                </a>
-            </div>
-            <br>
 
-            <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
-                <button type="button" class=" btn-primary btn-lg"><a class="text-white"
-                                                                     href="https://www.facebook.com/">Rate us on Facebook
-                    Now</a>
-                </button>
+
+
+        <div class="jumbotron jumbotron-fluid bg-dark text-white ">
+            <div class="container text-sm-center pt-5">
+                <h1 class="display-2">Welcome {{ user.username }}</h1>
+                <h3><a href="{% url 'website:rate' %}">Rate your favorite crypto safely!</a></h3>
+                <br>
+                <div>
+                    <a href="">
+                        <img src="{% static 'website/img/logo.png' %}" alt="Image">
+                    </a>
+                </div>
+                <br>
+
+                <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
+                    <button type="button" class=" btn-primary btn-lg"><a class="text-white"
+                                                                         href="https://www.facebook.com/">Rate us on
+                        Facebook
+                    </a>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
     {% else %}
-    <div class="jumbotron jumbotron-fluid bg-dark text-white ">
-        <div class="container text-sm-center pt-5">
-            <h1 class="display-2">Crypto Pal</h1>
-            <p class="lead">Welcome and don't forget to sign up!</p>
-            <br>
-            <div>
-                <a href="">
-                    <img src="{% static 'website/img/logo.png' %}" alt="Image">
-                </a>
-            </div>
-            <br>
+        <div class="jumbotron jumbotron-fluid bg-dark text-white ">
+            <div class="container text-sm-center pt-5">
+                <h1 class="display-2">Crypto Pal</h1>
+                <p class="lead">Welcome and don't forget to sign up!</p>
+                <br>
+                <div>
+                    <a href="">
+                        <img src="{% static 'website/img/logo.png' %}" alt="Image">
+                    </a>
+                </div>
+                <br>
 
-            <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
-                <button type="button" class=" btn-primary btn-lg"><a class="text-white"
-                                                                     href="{% url 'website:register' %}">Register</a>
-                </button>
+                <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
+                    <button type="button" class=" btn-primary btn-lg"><a class="text-white"
+                                                                         href="{% url 'website:register' %}">Register</a>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
     {% endif %}
 
 
 
 
 
-     <hr>
+    <hr>
     <div class="row py-4 text-muted">
         <div class="col-md col-xl-5">
             <p><strong>What are we?</strong></p>
@@ -57,42 +61,13 @@
             <p><strong>By Stefanos David Georgiou</strong></p>
         </div>
         <div class="col-md col-xl-5 ml-auto">
-                <p><strong>Goals:</strong></p>
-                <div class="col-lg order-lg-2 text-white">
+            <p><strong>Goals:</strong></p>
+            <div class="col-lg order-lg-2 text-white">
                 <p>We are an independent team of software developers and technical analysis experts.</p>
-                <p>Our goals are to expand into the cryptocurrency stage and create models that can predict future price movements.</p>
+                <p>Our goals are to expand into the cryptocurrency stage and create models that can predict future price
+                    movements.</p>
             </div>
-            </div>
+        </div>
     </div>
     <hr>
-<!--
-     <section id="index" class="pt-4">
-        <h1 class="display-4 text-center my-5 text-white">By Stefanos Georgiou</h1>
-        <div class="row ">
-            <div class="col-lg order-lg-2 text-white">
-                <h3 class="mb-4">Goals:</h3>
-                <p>We are an independent team of software developers and technical analysis experts.</p>
-                <p>Our goals are to expand into the cryptocurrency stage and creating models for future price movements.</p>
-            </div>
-        </div>
-     </section>
-
-
-<!--
-    <section id="info">
-        <h2 class="display-4 text-center mb-5 text-muted">by <a href="https://www.github.com">Stefanos Georgiou</a></h2>
-        <div class="row mx-2 text-justify">
-            <p class="text-white">
-                We are an independent team of software developers and technical analysis experts, /n
-                with goals of expanding into the cryptocurrency stage and creating models for n
-                future price movements.
-
-            </p>
-
-        </div>
-    </section>
-    <hr>
-
-
-
 {% endblock %}

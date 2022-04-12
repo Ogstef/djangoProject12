@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
-from .models import Currency, Registration
+from .models import Currency
 from .forms import NewUserForm, UserForm, ProfileForm
 from django.contrib import messages
 from django.template import loader
@@ -28,6 +28,20 @@ def rate(request):
 
         "v_currencies": Currency.objects.all()
     })
+
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST["q"]  # sometimes need parentheis
+        smatch = Currency.objects.filter(
+            description__contains=searched) | Currency.objects.filter(
+                name__contains=searched)
+        return render(request, "search_results.html", {
+            "searched": searched,
+            "schedules": smatch
+        })
+    else:
+        return render(request, "search_results.html", {})
 
 
 def contact(request):
